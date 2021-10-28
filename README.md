@@ -2,7 +2,8 @@
 
 This is a scaffold for building an admin project.
 
-UI is based on `bootstrap -v 4.6.0`.
+Main UI is based on `bootstrap -v 4.6.0`.
+
 Datetimepicker is based on `bootstrap4-datetime-picker-rails -v 0.3.1`, which works perfectly.
 
 The next step will add more and more common tools, e.g. something about How to draw tables and lines for Dashboard.
@@ -21,7 +22,7 @@ $> yarn --version
 1.22.17
 ```
 
-## How to use
+## How to use?
 
 ```bash
 # clone the project
@@ -39,7 +40,7 @@ $> rake db:seed
 $> rails s
 ```
 
-## Warn
+## Warn!
 
 The tables of SuperUser and User are examples to show pages and test simple logic right.
 
