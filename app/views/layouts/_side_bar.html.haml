@@ -4,6 +4,8 @@
     = nav_menu("用户列表") do
       = nav_submenu("男用户", users_path(gender: User::MALE), 'users', ignore_actions: ["special"])
       = nav_submenu("女用户", special_users_path, 'users', assign_actions: ["special"])
+    = nav_menu("工具列表") do
+      = nav_submenu("时间选择器", datetimepicker_tools_path, 'tools', assign_actions: ["datetimepicker"])
 
 :css
   #body-row {

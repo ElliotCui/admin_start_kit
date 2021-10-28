@@ -1,0 +1,9 @@
+.filter.col-xs-8
+  = form_tag merge_params_to_url(request.fullpath), method: :get, id: 'time-filter-form', class: 'form form-inline' do
+    .form-group
+      = label_tag :start_time, "开始时间："
+      = text_field_tag :start_time, @start_time.strftime('%F %T'), class: "form-control datetimepicker-input time-picker", autocomplete: 'off', placeholder: "请输入开始时间"
+    .form-group.ml-2
+      = label_tag :end_time, "结束时间："
+      = text_field_tag :end_time, @end_time.strftime('%F %T'), class: "form-control datetimepicker-input time-picker", autocomplete: 'off', placeholder: "请输入结束时间"
+    = submit_tag "查询", class: "btn btn-primary ml-2", id: 'search-by-time'

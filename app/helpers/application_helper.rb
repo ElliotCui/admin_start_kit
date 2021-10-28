@@ -8,6 +8,18 @@ module ApplicationHelper
     end
   end
 
+  def merge_params_to_url(url, add_params = { excludes: [] })
+    exclude_params = [add_params.delete(:excludes)].flatten
+    uri = Addressable::URI.parse(url)
+
+    query_hash = CGI.parse(uri.query.to_s).transform_values(&:first).symbolize_keys
+    query_hash = query_hash.reject { |k, _| exclude_params.include?(k) }
+    new_query = query_hash.merge(add_params.symbolize_keys).to_query
+
+    uri.query = new_query
+    uri.to_s
+  end
+
   def nav_link(text, url, *controllers, ignore_actions: [], assign_actions: [])
     active = active_class?(*controllers, ignore_actions, assign_actions) ? 'active' : ''
 

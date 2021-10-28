@@ -17,4 +17,10 @@ Rails.application.routes.draw do
       get :special
     end
   end
+
+  resources :tools, only: [] do
+    collection do
+      get :datetimepicker
+    end
+  end
 end

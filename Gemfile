@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+gem 'addressable', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -29,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'bootstrap', '~> 4.6.0'
+gem "bootstrap4-datetime-picker-rails", '~> 0.3.1'
 gem "font-awesome-rails", '~> 4.7.0.7'
 gem 'haml', '~> 5.2.2'
 gem 'jquery-rails', '~> 4.4.0'

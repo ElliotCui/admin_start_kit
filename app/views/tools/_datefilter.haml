@@ -1,0 +1,9 @@
+.filter.col-xs-8
+  = form_tag merge_params_to_url(request.fullpath), method: :get, id: 'date-filter-form', class: 'form form-inline' do
+    .form-group
+      = label_tag :start_date, "开始日期："
+      = text_field_tag :start_date, @start_date.strftime('%F'), class: "form-control datetimepicker-input date-picker", autocomplete: 'off', placeholder: "请输入开始日期"
+    .form-group.ml-2
+      = label_tag :end_date, "结束日期："
+      = text_field_tag :end_date, @end_date.strftime('%F'), class: "form-control datetimepicker-input date-picker", autocomplete: 'off', placeholder: "请输入结束日期"
+    = submit_tag "查询", class: "btn btn-primary ml-2", id: 'search-by-date'
