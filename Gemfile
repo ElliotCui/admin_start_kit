@@ -38,6 +38,7 @@ gem 'uglifier', '~> 4.2.0'
 gem 'will_paginate-bootstrap', '~> 1.0.2'
 
 group :development do
+  gem 'colorize', '~> 0.8.1'
   gem 'listen', '~> 3.3'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
