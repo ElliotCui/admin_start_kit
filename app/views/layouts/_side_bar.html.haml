@@ -1,0 +1,100 @@
+#sidebar-container.sidebar-expanded.d-md-block
+  %ul.list-group
+    = nav_link("管理员列表", super_users_path, 'super_users')
+    = nav_menu("用户列表") do
+      = nav_submenu("男用户", users_path(gender: User::MALE), 'users', ignore_actions: ["special"])
+      = nav_submenu("女用户", special_users_path, 'users', assign_actions: ["special"])
+
+:css
+  #body-row {
+      margin-left:0;
+      margin-right:0;
+  }
+
+  .container-fluid {
+      margin-top: 20px;
+  }
+
+  #sidebar-container {
+      min-height: 100vh;
+      padding: 0;
+
+      font-size: 14px;
+  }
+
+  .sidebar-collapsed {
+      width: 60px;
+  }
+
+  #sidebar-container .list-group .list-group-item {
+      padding: 0.75rem 0.25rem;
+      color: #007bff;
+  }
+  #sidebar-container .list-group .list-group-item.list-group-item-action {
+      padding-left: 10px;
+  }
+  #sidebar-container .list-group .list-group-item.list-group-item-action.active {
+      color: white;
+  }
+  #sidebar-container .list-group .list-group-item.submenu-action {
+      font-size: 12px;
+      padding-left: 20px;
+  }
+  #sidebar-container .list-group .list-group-item.submenu-action.active {
+      background-color: lightgray;
+      border-color: lightgray;
+      color: black;
+  }
+
+  #sidebar-container .list-group .list-group-item.has_audits {
+      color: red;
+  }
+  #sidebar-container .list-group .list-group-item.submenu-action.has_audits {
+      color: red;
+  }
+
+  .sidebar-separator-title {
+      height: 35px;
+  }
+  .sidebar-separator {
+      height: 25px;
+  }
+  .logo-separator {
+      height: 60px;
+  }
+
+  /* Closed submenu icon */
+  #sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::before {
+    content: " \f0d7";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+  }
+  /* Opened submenu icon */
+  #sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::before {
+    content: " \f0da";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+  }
+
+:javascript
+  $(document).ready(function() {
+    submenu = $('.submenu-action.active').parent('.sidebar-submenu');
+    submenu.collapse('show');
+
+    menu_id = submenu.data('menu-id');
+    menu = $('#' + menu_id);
+    menu.addClass('active');
+
+    last_level_sub_menu = menu.parent('.sidebar-submenu')[0];
+    if (!(last_level_sub_menu == 'defined')) {
+      $(last_level_sub_menu).collapse('show');
+
+      last_level_menu_id = $(last_level_sub_menu).data('menu-id');
+      last_level_menu = $('#' + last_level_menu_id);
+      last_level_menu.addClass('active');
+    }
+  })

@@ -1,0 +1,30 @@
+.card
+  .card-body
+    %h4.card-title 管理员
+    %table.table.table-hover
+      %thead
+        %tr
+          %th #
+          %th 用户名
+          %th 工作邮箱
+          %th 是否激活
+          %th 更新时间
+          %th 操作
+      %tbody
+        - @super_users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.name
+            %td= user.email
+            %td
+              .checkbox.table-element
+                %label
+                  %input{:type => "checkbox", checked: user.is_active, disabled: "disabled"}
+                    = user.is_active ? "已激活" : "未激活"
+            %td= user.updated_at.strftime("%F")
+            %td
+              = link_to "查看", super_user_path(user), class: "btn btn-link table-element", role: 'button'
+              = link_to "编辑", edit_super_user_path(user), class: "btn btn-link table-element", role: 'button'
+              = link_to "删除", super_user_path(user), class: "btn btn-link table-element", role: 'button', method: :delete, data: {:confirm => "确定移除#{user.name}的管理员权限吗？"}
+
+    = will_paginate @super_users, renderer: BootstrapPagination::Rails

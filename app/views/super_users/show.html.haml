@@ -1,0 +1,16 @@
+.card
+  .card-body
+    .row
+      .col-md-10.headline
+        %h4.card-title= @super_user.name
+      .col-md-2.headline.link
+        %form{action: reset_password_super_user_path(@super_user), method: 'post'}
+          %button.btn.btn-link.btn-fw{:type => "submit"} 重置密码
+    - info = raw(@super_user.as_json.to_json)
+    %pre{id: "info"}
+
+:javascript
+  $(document).ready(function(){
+    let info = prettyPrint.syntaxHighlight(#{info});
+    prettyPrint.output("info", info);
+  });

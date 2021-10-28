@@ -1,0 +1,25 @@
+.card
+  .card-body
+    %h4.card-title 用户列表
+    %table.table.table-hover
+      %thead
+        %tr
+          %th #
+          %th 用户名
+          %th 性别
+          %th 邮箱
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.name
+            %td
+              - if user.gender == User::MALE
+                男
+              - elsif user.gender == User::FEMALE
+                女
+              - else
+                性别错误
+            %td= user.email
+
+    = will_paginate @users, renderer: BootstrapPagination::Rails

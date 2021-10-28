@@ -1,0 +1,22 @@
+.card
+  .card-body
+    %h4.card-title= @super_user.new_record? ? "/管理员/新建" : "/管理员/编辑"
+    = form_for @super_user, url: url do |f|
+      .form-group
+        = f.label "姓名"
+        = f.text_field :name, class: 'form-control', value: @super_user.name, placeholder: "请输入管理员姓名"
+      .form-group
+        = f.label "邮箱"
+        = f.email_field :email, class: 'form-control', value: @super_user.email, placeholder: "请输入管理员工作邮箱"
+      - if @super_user.new_record?
+        .form-group
+          = f.label "密码"
+          = f.password_field :password, class: 'form-control', value: @super_user.password, placeholder: "请输入密码"
+        .form-group
+          = f.label "密码确认"
+          = f.password_field :password_confirmation, class: 'form-control', value: @super_user.password_confirmation, placeholder: "请确认密码"
+      .form-group
+        = f.label "是否激活"
+        = f.check_box :is_active, {:class => "form-control no-box-shadow"}, true, false
+
+      = f.submit "确定", class: "btn btn-primary"

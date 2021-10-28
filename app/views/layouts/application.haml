@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title AdminStartKit
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render "layouts/nav_bar"
+    .container-fluid
+      .row.row-sm{style: "min-height: 100vh"}
+        .col-md-2.col-4.sidebar
+          = render "layouts/side_bar"
+        .col-md-10.col-8.main
+          = render "layouts/body"
+      = render "layouts/footer"
+
+:javascript
+
+  $('#logout').on('click', function(){
+    $.ajax({ url: "#{logout_path}", method: 'delete' });
+  });

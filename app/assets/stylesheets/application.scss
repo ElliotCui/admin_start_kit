@@ -1,0 +1,26 @@
+@import "bootstrap";
+@import "font-awesome";
+
+.flex-ele-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.popover {
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+  padding: .4rem .25rem;
+  font-size: .875rem;
+  line-height: 1;
+  border-radius: .2rem;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}

@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -28,10 +28,12 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
+gem 'bootstrap', '~> 4.6.0'
+gem "font-awesome-rails", '~> 4.7.0.7'
+gem 'haml', '~> 5.2.2'
+gem 'jquery-rails', '~> 4.4.0'
+gem 'uglifier', '~> 4.2.0'
+gem 'will_paginate-bootstrap', '~> 1.0.2'
 
 group :development do
   gem 'listen', '~> 3.3'
@@ -41,8 +43,8 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-end
+  gem 'spring', '~> 3.0.0'
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+  # gem 'pry-rails', '~> 0.3.9'
+  gem 'rubocop-rails', '~> 2.12.4'
+end
