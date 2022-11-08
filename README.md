@@ -10,7 +10,7 @@ The next step will add more and more common tools, e.g. something about How to d
 
 ```bash
 $> ruby --version
-ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
+ruby 2.7.5p203 (2021-11-24 revision f69aeb8314) [x86_64-darwin21]
 
 $> rails --version
 Rails 6.1.4.1
@@ -28,7 +28,7 @@ $> yarn --version
 # clone the project
 $> git clone git@github.com:ElliotCui/admin_start_kit.git
 # change the the folder name(admin_start_kit) to YOUR_PROJECT_NAME as you wish
-$> mv(using `cp` is ok) dmin_start_kit YOUR_PROJECT_NAME
+$> mv(using `cp` is ok) admin_start_kit YOUR_PROJECT_NAME
 # enter the dictionary of YOUR PROJECT
 $> cd YOUR_PROJECT_NAME
 # init project with YOUR_PROJECT_NAME
